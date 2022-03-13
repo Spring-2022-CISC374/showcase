@@ -1,0 +1,49 @@
+---
+layout: default
+title: CISC374 Showcase
+---
+
+<h1>CISC374 Spring 2020 Educational Games</h1>
+
+Jump to:
+<ul>
+{% for project in site.data.s20games %}
+    <li><a href="#{{ project.Key }}">{{ project.Name }}</a></li>
+{% endfor %}
+</ul>
+
+<table>
+{% for project in site.data.s20games %}
+<tr>
+<td colspan=2 style='border-bottom: 0px'>
+    <h2 name="{{ project.Key }}" id="{{ project.Key }}">{{ project.Name }}</h2>
+</td>
+</tr>
+
+<tr>
+
+<td width="60%">
+<p><em>Coded by {{ project.Coders }}</em><br>
+Learning Domain: {{ project.Domain }}<br>
+{{ project.Pitch }}
+<ul>
+    <li><strong><a href="{{ project.Link }}">Play Online</a></strong></li>
+    {% if project.Youtube %}
+    <li><a href="{{ project.Youtube }}">Gameplay Video</a></li>
+    {% endif %}
+    <li><a href="{{ project.EGDD }}">Game Design Document</a></li>
+    <li><a href="{{ project.Source }}">Source Code</a></li>
+</ul>
+</p>
+</td>
+
+<td width="40%">
+<a href="{{ project.Link }}" target=_blank>
+    <img src="screenshots/{{ project.Key }}_small.png">
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+</table>
